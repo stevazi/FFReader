@@ -1,5 +1,7 @@
+<!doctype html>
 <html>
   <head>
+    <meta charset="UTF-8"> 
     <title>API-Home</title>
   </head>
   <body>
