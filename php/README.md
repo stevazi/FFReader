@@ -1,8 +1,6 @@
 FFReader
 ========
 
-An API based reader for Forumfree
-
 
 Description of the various file:
 
