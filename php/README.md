@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 FFReader
 ========
 
@@ -17,8 +16,4 @@ Description of the various file:
   unsorted list nested for the subsections) and the articles block (using an unsorted list) when they are neeeded (so if the website don't have any articles it wil not print the
   articles block). It also create link to the other page reader, so you can quickly navigate into the website.
   
-=======
-The OpenShift `php` cartridge documentation can be found at:
-
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-php/README.md
->>>>>>> 679f1b6b4850a9d8159aa431528c696989b141ab
+You can also try this reader at http://php-isamurai.rhcloud.com/api.html
