@@ -9,13 +9,15 @@
       $json = file_get_contents("$website/api.php");
       $data = json_decode($json);
       #end the fetch data part
+      echo "<h1>Sezioni:</h1>";
+      echo "<ul>";
       foreach ($data->sections as $section){
-	echo "<h1>".$section->name."</h1>";
-	echo "<h1>Sotto Sezioni:</h1>";
-	echo "<ul>";
-	foreach ($section->subsections as $sub){
-	  echo "<li><a href=\"api-section.php?website=$website&id=$sub->id\"><h2>$sub->name</h2></a></li>";
-	}
+	  echo "<li><a href=\"api-section.php?website=$website&id=$section->id\"><h2>$section->name</h2></a></li>";
+	  echo "<ul>";
+	  foreach ($section->subsections as $sub){
+	    echo "<li><a href=\"api-section.php?website=$website&id=$sub->id\"><h2>$sub->name</h2></a></li>";
+	  }
+	  echo "</ul>";
       }
       echo "</ul>";
       echo "<h1>Articoli:</h1>";
