@@ -37,12 +37,15 @@
 	  #li (link_to_the_thread (name_of_the_thread))
 	echo "</ul>";
 	if($data->info->pages > 1){
-	  echo "<a href=\"api-section.php?website=$website&id=$id\"><strong>Prima Pagina</strong></a> - ";
-	  if ($page/15 > 0)
-	    echo "<a href=\"api-section.php?website=$website&id=$id&page=".($page-15)."\"><strong>Pagina precedente</strong></a> - ";
-	  if ($page/15 < $data->info->pages-1)
+	  if($page > 0){
+	    echo "<a href=\"api-section.php?website=$website&id=$id\"><strong>Prima Pagina</strong></a> - ";
+	    echo "<a href=\"api-section.php?website=$website&id=$id&page=".($page-15)."\"><strong>Pagina precedente</strong></a>";
+	  }
+	  echo "<br />";
+	  if ($page/15 < $data->info->pages-1){
 	    echo "<a href=\"api-section.php?website=$website&id=$id&page=".($page+15)."\"><strong>Pagina successiva</strong></a> - ";
-	  echo "<a href=\"api-section.php?website=$website&id=$id&page=".(($data->info->pages-1) * 15)."\"><strong>Ultima Pagina</strong></a>";
+	    echo "<a href=\"api-section.php?website=$website&id=$id&page=".(($data->info->pages-1) * 15)."\"><strong>Ultima Pagina</strong></a>";
+	  }
 	}
       }
      ?>

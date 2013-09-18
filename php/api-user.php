@@ -17,7 +17,7 @@
       echo "<div>";
       echo "<h2>$user->nickname</h2>";
       echo "<img src=\"$user->avatar\" /> <br />";
-      echo "<strong>Gruppo: ".$user->group->name."</strong><br />";
+      echo "<a href=\"api-group.php?website=$website&id=".$user->group->id."\"><strong>Gruppo: ".$user->group->name."</strong></a><br />";
       echo "<strong>Messaggi: $user->messages</strong><br />";
       echo "<strong>Reputazione: $user->reputation</strong><br />";
       echo "</div>";
