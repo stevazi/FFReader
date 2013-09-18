@@ -27,7 +27,7 @@
       #post are printed using an ordinated list
       foreach ($data->messages as $msg){
 	echo "<li>";
-	echo "<span>".$msg->user->name."</span>";
+	echo "<span><a href=\"api-user.php?website=$website&id=".$msg->user->id."\">".$msg->user->name."</a></span>";
 	echo "<div>".$msg->content."</div></li>";
 	#every post has this layout:
 	  #li (span (author) div (content))
