@@ -1,0 +1,9 @@
+/* Example skin */
+
+body {background: #1A1A1A}
+h1 {color: #C1C1C1}
+ul { list-style-type: none}
+a {color: #3399FF}
+#section_list, #article_list{border-left: 2px solid #989899; padding: 1em}
+.sub_list {border-left: 1px solid #989899; padding: 0.5em}
+.section, .article {margin: 0.25em 0em}

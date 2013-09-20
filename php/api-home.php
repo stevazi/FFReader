@@ -30,7 +30,7 @@
 	  if($section->subsections){
 	    echo "<ul class=\"sub_list\">";
 	    foreach ($section->subsections as $sub)
-	      echo "<li class=\"section\"><a href=\"api-section.php?website=$website&id=$sub->id\"><strong>".strip_tags($sub->name, "<a>")."</strong></a></li>";
+	      echo "<li class=\"section\"><a href=\"api-section.php?website=$website&id=$sub->id\">".strip_tags($sub->name, "<a>")."</a></li>";
 	    echo "</ul>";
 	  }
 	}
@@ -41,7 +41,7 @@
 	echo "<h1>Articoli:</h1>";
 	echo "<ul id=\"article_list\">";
 	foreach ($data->articles as $art){
-	  echo "<li class=\"article\"><a href=\"api-topic.php?website=$website&id=$art->id\"><strong>".strip_tags($art->title, "<a>")."</strong></a>";
+	  echo "<li class=\"article\"><a href=\"api-topic.php?website=$website&id=$art->id\">".strip_tags($art->title, "<a>")."</a>";
 	  echo " <em>".strip_tags($art->desc, "<a>")."</em>";
 	  echo "</li>";
 	}
