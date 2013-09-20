@@ -7,7 +7,7 @@
       $website="http://".$website;
   }
   else
-    $website="supporto.forumfree.it";
+    $website="http://supporto.forumfree.it";
   $json = file_get_contents("$website/api.php");
   $data = json_decode($json);
   #end the fetch data part
