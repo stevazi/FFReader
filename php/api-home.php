@@ -1,40 +1,53 @@
 <!doctype html>
+<?php
+  #start the fetch data part
+  if(array_key_exists("website", $_GET)){
+    $website=htmlentities($_GET["website"]);
+    if(!preg_match ('/http:\/\//', $website))
+      $website="http://".$website;
+  }
+  else
+    $website="supporto.forumfree.it";
+  $json = file_get_contents("$website/api.php");
+  $data = json_decode($json);
+  #end the fetch data part
+?>
 <html>
   <head>
-    <meta charset="UTF-8"> 
     <title>API-Home</title>
+    <meta charset="UTF-8"> 
+    <link href="skin.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <?php
-      #start the fetch data part
-      $website=htmlentities($_GET["website"]);
-      if(!preg_match ('/http:\/\//', $website))
-	$website="http://".$website;
-      $json = file_get_contents("$website/api.php");
-      $data = json_decode($json);
-      #end the fetch data part
+      #start of the print page part
+      #if there are some sections into the home page we will show them
       if($data->sections){
 	echo "<h1>Sezioni:</h1>";
-	echo "<ul>";
+	echo "<ul id=\"section_list\">";
 	foreach ($data->sections as $section){
-	    echo "<li><a href=\"api-section.php?website=$website&id=$section->id\"><strong>$section->name</strong></a></li>";
-	    echo "<ul>";
+	  echo "<li class=\"section\"><a href=\"api-section.php?website=$website&id=$section->id\"><strong>".strip_tags($section->name, "<a>")."</strong></a></li>";
+	  if($section->subsections){
+	    echo "<ul class=\"sub_list\">";
 	    foreach ($section->subsections as $sub)
-	      echo "<li><a href=\"api-section.php?website=$website&id=$sub->id\"><strong>$sub->name</strong></a></li>";
+	      echo "<li class=\"section\"><a href=\"api-section.php?website=$website&id=$sub->id\"><strong>".strip_tags($sub->name, "<a>")."</strong></a></li>";
 	    echo "</ul>";
+	  }
 	}
 	echo "</ul>";
       }
+      #if there are some articles into the home page we will show them
       if($data->articles){
 	echo "<h1>Articoli:</h1>";
-	echo "<ul>";
+	echo "<ul id=\"article_list\">";
 	foreach ($data->articles as $art){
-	    echo "<li><a href=\"api-topic.php?website=$website&id=$art->id\"><strong>$art->title</strong></a>";
-	    echo " <em>$art->desc</em>";
-	    echo "</li>";
-	  }
+	  echo "<li class=\"article\"><a href=\"api-topic.php?website=$website&id=$art->id\"><strong>".strip_tags($art->title, "<a>")."</strong></a>";
+	  echo " <em>".strip_tags($art->desc, "<a>")."</em>";
+	  echo "</li>";
+	}
 	echo "</ul>";
       }
+      #end of the print page part
      ?>
   </body>
 </html>
