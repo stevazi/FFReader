@@ -8,7 +8,11 @@
     <pre>
     <?php
       $website=htmlspecialchars($_GET["website"]);
-      $json = file_get_contents("$website");
+      $cl = curl_init();
+      curl_setopt ($cl, CURLOPT_URL, "$website");
+      curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
+      $json = curl_exec($cl);
+      curl_close();
       $data = json_decode($json);
       print_r($data);
       echo json_last_error_msg();

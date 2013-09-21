@@ -8,7 +8,12 @@
     <?php
       $website=htmlentities($_GET["website"]);
       $id=$_GET["id"];
-      $json = file_get_contents("$website/api.php?g=$id");
+      $website=htmlspecialchars($_GET["website"]);
+      $cl = curl_init();
+      curl_setopt ($cl, CURLOPT_URL, "$website/api.php?g=$id");
+      curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
+      $json = curl_exec($cl);
+      curl_close();
       $data = json_decode($json);
       echo "<a href=\"api-home.php?website=$website\"><h2>home</h2></a>";
       #a quick navigation url to the homepage

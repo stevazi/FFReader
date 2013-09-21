@@ -7,8 +7,13 @@
       $website="http://".$website;
   }
   else
-    $website="http://supporto.forumfree.it";
-  $json = file_get_contents("$website/api.php");
+  $website="http://supporto.forumfree.it";
+  $website=htmlspecialchars($_GET["website"]);
+  $cl = curl_init();
+  curl_setopt ($cl, CURLOPT_URL, "$website/api.php");
+  curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
+  $json = curl_exec($cl);
+  curl_close();
   $data = json_decode($json);
   #end the fetch data part
 ?>
