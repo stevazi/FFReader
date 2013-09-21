@@ -12,7 +12,7 @@
       curl_setopt ($cl, CURLOPT_URL, "$website");
       curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
       $json = curl_exec($cl);
-      curl_close();
+      curl_close($cl);
       $data = json_decode($json);
       print_r($data);
       echo json_last_error_msg();

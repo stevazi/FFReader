@@ -18,7 +18,7 @@
   curl_setopt ($cl, CURLOPT_URL, "$website/api.php?f=$id&st=$page");
   curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
   $json = curl_exec($cl);
-  curl_close();
+  curl_close($cl);
   $data = json_decode($json);
   #end the fetch data part
 ?>
@@ -31,7 +31,9 @@
   <body>
     <?php
       echo "<h1>".$data->info->name."</h1>";
-      echo "<a href=\"api-home.php?website=$website\"><strong>home</strong></a>";
+      echo "<a href=\"api-home.php?website=$website\"><strong>home</strong></a> ";
+      if($data->info->subsection_mother_id)
+        echo "<a href=\"api-home.php?website=$website&id=".$data->info->subsection_mother_id."\"><strong>Torna a ".$data->info->subsection_mother_name."</strong></a>";
       #quick navigation url to the homepage
       if($data->subsections){
 	echo "<h2>Sottosezioni:</h2>";

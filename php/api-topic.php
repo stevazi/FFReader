@@ -18,7 +18,7 @@
       curl_setopt ($cl, CURLOPT_URL, "$website/api.php?t=$id&st=$page");
       curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
       $json = curl_exec($cl);
-      curl_close();
+      curl_close($cl);
       $data = json_decode($json);
       #end the fetch data part
       echo "<h1>".$data->info->title."</h1>";

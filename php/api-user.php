@@ -13,7 +13,7 @@
       curl_setopt ($cl, CURLOPT_URL, "$website/api.php?mid=$id");
       curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
       $json = curl_exec($cl);
-      curl_close();
+      curl_close($cl);
       $data = json_decode($json);
       echo "<a href=\"api-home.php?website=$website\"><h2>home</h2></a>";
       #a quick navigation url to the homepage
