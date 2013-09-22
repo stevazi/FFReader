@@ -7,13 +7,18 @@
   <body>
     <?php
       #start the fetch data part
-      $website=htmlentities($_GET["website"]);
-      $id=$_GET["id"];
-      if (array_key_exists("page", $_GET))
-	$page=$_GET["page"];
+      if (array_key_exists ("website", $_GET))
+        $website=htmlentities($_GET["website"]);
       else
-	$page=0;
-      $website=htmlspecialchars($_GET["website"]);
+        $website="http://supporto.forumfree.it";
+      if(array_key_exists ("id", $_GET))
+        $id=$_GET["id"];
+      else
+        $id=1;
+      if (array_key_exists("page", $_GET))
+        $page=$_GET["page"];
+      else
+        $page=0;
       $cl = curl_init();
       curl_setopt ($cl, CURLOPT_URL, "$website/api.php?t=$id&st=$page");
       curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);

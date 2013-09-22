@@ -13,7 +13,6 @@
     $page=$_GET["page"];
   else
     $page=0;
-  $website=htmlspecialchars($_GET["website"]);
   $cl = curl_init();
   curl_setopt ($cl, CURLOPT_URL, "$website/api.php?f=$id&st=$page");
   curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);

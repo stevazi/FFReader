@@ -7,8 +7,7 @@
       $website="http://".$website;
   }
   else
-  $website="http://supporto.forumfree.it";
-  $website=htmlspecialchars($_GET["website"]);
+    $website="http://supporto.forumfree.it";
   $cl = curl_init();
   curl_setopt ($cl, CURLOPT_URL, "$website/api.php");
   curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
