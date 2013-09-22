@@ -7,7 +7,10 @@
   <body>
     <pre>
     <?php
-      $website=htmlspecialchars($_GET["website"]);
+      if(array_key_exists ("website", $_GET))
+        $website=htmlspecialchars($_GET["website"]);
+      else
+        $website="http://supporto.forumfree.it/api.php";
       $cl = curl_init();
       curl_setopt ($cl, CURLOPT_URL, "$website");
       curl_setopt ($cl, CURLOPT_RETURNTRANSFER, true);
