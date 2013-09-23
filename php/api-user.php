@@ -23,12 +23,13 @@
     </head>
     <body>
         <?php
-            echo "<a href=\"api-home.php?website=$website\"><h2>home</h2></a>";
+            echo "<a href=\"api-home.php?website=$website\"><strong>home</strong></a>";
             #a quick navigation url to the homepage
             $mid="m".$id;
             $user=$data->$mid;
-            echo "<div id=\"user_name\">";
+            echo "<div id=\"user_data\">";
             echo "<h2 id=\"nickname\">$user->nickname</h2>";
+            echo "<div id=\"user_avatar\">";
             echo "<img src=\"$user->avatar\" id=\"avatar\" />";
             echo "</div>";
             echo "<div id=\"user_info\">";
@@ -36,6 +37,7 @@
             echo $user->group->id."\"><strong id=\"user_group\">Gruppo: ".$user->group->name."</strong></a><br />";
             echo "<strong id=\"user_messages\">Messaggi: $user->messages</strong><br />";
             echo "<strong id=\"user_rep\">Reputazione: $user->reputation</strong><br />";
+            echo "</div>";
             echo "</div>";
         ?>
     </body>

@@ -1,10 +1,73 @@
 /* Example skin */
 
-body {background: #1A1A1A}
-h1, h2 {color: #C1C1C1}
-ul { list-style-type: none}
-a {color: #3399FF}
-#section_list, #article_list, #thread_list{border-left: 2px solid #989899; padding: 1em; margin-left: 0.25em}
-#nav_footer {margin-left: 25%}
-.sub_list {border-left: 1px solid #989899; padding: 0.5em; margin-left: 1em}
-.section, .article, .thread {margin: 0.25em 0em}
+/* Generic Elements */
+body {
+    background: #1A1A1A;
+    color: #C1C1C1;
+}
+
+ul { 
+    list-style-type: none;
+}
+
+a {
+    color: #3399FF;
+}
+
+/* ID */
+#section_list, #article_list, #thread_list, #members_list{
+    border-left: 2px solid #989899;
+    padding: 1em;
+    margin-left: 0.25em;
+}
+
+#nav_footer {
+    margin-left: 25%;
+}
+
+#user_data {
+    padding: 1em;
+}
+
+#user_avatar, #user_info {
+    float: left; 
+    margin-right: 0.5em;
+} 
+
+#user_avatar {
+    border-right: 1px solid #989899; 
+    padding: 0.5em;
+}
+
+#group_name, #group_description{
+    padding: 0.75em;
+    float: left;
+}
+
+#group_info{
+    padding: 1em;
+}
+
+#group_description{
+    font-style: italic;
+    width: 33%;
+    border-left: 1px solid #989899; 
+}
+
+#group_members{
+    border-top: 1px solid #989899; 
+    clear: both;
+    width: 49%;
+    padding: 1em;
+}
+
+/* Classes */
+.sub_list {
+    border-left: 1px solid #989899; 
+    padding: 0.5em; 
+    margin-left: 1em;
+}
+
+.section, .article, .thread, .member {
+    margin: 0.25em 0em;
+}
