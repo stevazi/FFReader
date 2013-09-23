@@ -17,8 +17,9 @@
 ?>
 <html>
     <head>
-        <meta charset="UTF-8"> 
         <title>API-User</title>
+        <meta charset="UTF-8">
+        <link href="skin.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <?php
