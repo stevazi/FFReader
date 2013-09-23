@@ -13,5 +13,3 @@ Description of the various file:
   This is the homepage viewer of the website: you must send to him the website using the GET method, and it will print the sections block (using an unsorted list, with others
   unsorted list nested for the subsections) and the articles block (using an unsorted list) when they are neeeded (so if the website don't have any articles it wil not print the
   articles block). It also create link to the other page reader, so you can quickly navigate into the website.
-  
-You can also try this reader at http://php-isamurai.rhcloud.com/api.html
