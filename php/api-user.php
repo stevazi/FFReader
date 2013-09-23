@@ -27,13 +27,15 @@
             #a quick navigation url to the homepage
             $mid="m".$id;
             $user=$data->$mid;
-            echo "<div>";
-            echo "<h2>$user->nickname</h2>";
-            echo "<img src=\"$user->avatar\" /> <br />";
+            echo "<div id=\"user_name\">";
+            echo "<h2 id=\"nickname\">$user->nickname</h2>";
+            echo "<img src=\"$user->avatar\" id=\"avatar\" />";
+            echo "</div>";
+            echo "<div id=\"user_info\">";
             echo "<a href=\"api-group.php?website=$website&id=";
-            echo $user->group->id."\"><strong>Gruppo: ".$user->group->name."</strong></a><br />";
-            echo "<strong>Messaggi: $user->messages</strong><br />";
-            echo "<strong>Reputazione: $user->reputation</strong><br />";
+            echo $user->group->id."\"><strong id=\"user_group\">Gruppo: ".$user->group->name."</strong></a><br />";
+            echo "<strong id=\"user_messages\">Messaggi: $user->messages</strong><br />";
+            echo "<strong id=\"user_rep\">Reputazione: $user->reputation</strong><br />";
             echo "</div>";
         ?>
     </body>
