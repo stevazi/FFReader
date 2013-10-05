@@ -6,17 +6,16 @@ body {
     color: #C1C1C1;
 }
 
-ul { 
-    list-style-type: none;
-}
-
 a {
     color: #3399FF;
 }
 
+ol {
+    list-style-type: none;
+}
+
 /* ID */
-#section_list, #article_list, #thread_list, #members_list{
-    border-left: 2px solid #989899;
+#section_list, #article_list, #thread_list, #members_list, #post_list{
     padding: 1em;
     margin-left: 0.25em;
 }
@@ -63,11 +62,32 @@ a {
 
 /* Classes */
 .sub_list {
-    border-left: 1px solid #989899; 
     padding: 0.5em; 
     margin-left: 1em;
+    list-style-type: square;
 }
 
-.section, .article, .thread, .member {
+.section, .article, .thread, .member{
     margin: 0.25em 0em;
+}
+
+.post{
+    margin: 0.75em;
+    border: 2px solid #989899;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    max-width: 75%;
+}
+
+.author{
+    padding: 0.25em;
+}
+
+.message{
+    border-top: 1px solid #989899;
+    padding: 0.25em;
+    max-width: 90%;
+    word-break: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }

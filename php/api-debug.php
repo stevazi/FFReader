@@ -19,6 +19,7 @@
     <body>
         <pre>
             <?php
+                echo $website;
                 print_r($data);
                 echo json_last_error_msg();
             ?>

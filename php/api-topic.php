@@ -37,18 +37,19 @@
             echo "<a href=\"api-home.php?website=$website\"><h2>home</h2></a>";
             #a quick navigation url to the homepage
             echo "<h1>Messaggi:</h1>";
-            echo "<ol>";
+            echo "<ol id=\"post_list\">";
             #post are printed using an ordinated list
             foreach ($data->messages as $msg){
-                echo "<li>";
-                echo "<span><a href=\"api-user.php?website=$website&id=".$msg->user->id."\">".$msg->user->name."</a></span>";
-                echo "<div>".$msg->content."</div></li>";
+                echo "<li class=\"post\">";
+                echo "<div class=\"author\"><a href=\"api-user.php?website=$website&id=".$msg->user->id."\">".$msg->user->name."</a></div>";
+                echo "<div class=\"message\">".$msg->content."</div></li>";
                 #every post has this layout:
-                    #li (span (author) div (content))
+                    #li (div (author) div (content))
                     #maybe in the future I will add other informations, but for now they are sufficient
             }
             echo "</ol>";
             if($data->info->pages > 1){
+                echo "<div id=\"nav_footer\">";
                 if($page > 0){
                     echo "<a href=\"api-topic.php?website=$website&id=$id\"><strong>Prima Pagina</strong></a> - ";
                     echo "<a href=\"api-topic.php?website=$website&id=$id&page=".($page-15)."\"><strong>Pagina precedente</strong></a>";
@@ -59,6 +60,7 @@
                     echo "<a href=\"api-topic.php?website=$website&id=$id&page=";
                     echo (($data->info->pages-1) * 15)."\"><strong>Ultima Pagina</strong></a>";
                 }
+                echo "</div>";
             }
         ?>
     </body>
